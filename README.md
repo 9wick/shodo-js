@@ -63,6 +63,10 @@ https://github.com/zenproducts/developers.shodo.ink/blob/master/docs/api.md
 | タスク API           |          |     |       |
 | タスク詳細 API       |          |     |       |
 
+### 動作未確認事項
+- APIの文字数制限を超えたときの挙動
+
+
 
 ## API外関数
 
