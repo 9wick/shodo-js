@@ -55,12 +55,12 @@ export class Shodo {
     return false;
   }
 
-  public async requestLint(body: string) {
+  public async createLint(body: string) {
     const results = await this.requestToShodo("lint/", "POST", { body });
     return { lintId: results.lint_id };
   }
 
-  public async getResults(lintId: string) {
+  public async getLintResults(lintId: string) {
     const results = (await this.requestToShodo(
       `lint/${lintId}/`,
       "GET"
@@ -68,14 +68,14 @@ export class Shodo {
     return results;
   }
 
-  public async requestLintWait(body: string) {
-    const results = await this.requestLint(body);
+  public async lintWait(body: string) {
+    const results = await this.createLint(body);
     const lintId = results.lintId;
 
     // eslint-disable-next-line no-constant-condition
     while (1) {
       await setTimeout(500); // refer to https://github.com/zenproducts/shodo-python/blob/main/shodo/lint.py#L55
-      const results = await this.getResults(lintId);
+      const results = await this.getLintResults(lintId);
       if (results.status === "failed") {
         throw new Error(`shodo api failed: ${JSON.stringify(results)}`);
       }
