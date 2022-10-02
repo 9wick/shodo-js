@@ -68,6 +68,19 @@ https://github.com/zenproducts/developers.shodo.ink/blob/master/docs/api.md
 
 APIの利用に便利な関数をいくつか作っています
 
+
+- shodo.isValidAccount
+
+入力されたAPIルートとトークンが正しいものであるかどうかを確認します
+
+```typescript
+
+if (!(await shodo.isValidAccount())) {
+  throw new Error("Shodoアカウント情報が間違っています");
+}
+
+```
+
 - shodo.lintWait
 
 校正 APIと校正結果 APIを使い、校正結果が帰ってくるまで待機する関数です
