@@ -1,5 +1,5 @@
 {
-  "name": "shodo",
+  "name": "@9wick/shodo",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
